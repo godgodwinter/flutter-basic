@@ -10,24 +10,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("MyFlutter App"),
+          title: Text("MyFlutter App Eps4"),
         ),
-        body: Center(
-            child: Container(
-                color: Colors.lightBlue,
-                width: 250,
-                height: 50,
-                child: Text(
-                  'HELLO NOOOB! Im trying improve my flutter skill!',
-                  overflow: TextOverflow.ellipsis, //jika terpotong akan ada ...
-                  maxLines: 2, //jumlah max ke bawah
-                  softWrap: true, //jika false maka tidak akan di wrap ke bawah
-                  textAlign: TextAlign.center, //posision rata kiri tengah kanan
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w700),
-                ))),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text("Text 1"),
+              Text("Text 2"),
+              Text("Text 3"),
+              Row(
+                children: <Widget>[
+                  Text("Text 4"),
+                  Text("Text 5"),
+                  Text("Text 6"),
+                ],
+              )
+            ]),
       ),
     );
   }
