@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Random random = Random();
   List<Widget> widgets = [];
   int counter = 1;
 
@@ -18,55 +20,21 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: Text("LATIHAN TEXTSTYLE - eps8"),
+        title: Text("ANIMATE CONTAINER- eps10"),
       ),
-      body: ListView(
-        children: <Widget>[
-          Padding(padding: EdgeInsets.only(top: 11)),
-          Center(
-            child: Text(
-              "TEST GANTI FONT",
-              style: TextStyle(
-                  fontFamily: "SigmarOne",
-                  fontSize: 25,
-                  decoration: TextDecoration.overline,
-                  decorationColor: Colors.red,
-                  decorationThickness: 5,
-                  decorationStyle: TextDecorationStyle.wavy),
-            ),
+      body: Center(
+        child: GestureDetector(
+          onTap: () {
+            setState(() {});
+          },
+          child: AnimatedContainer(
+            color: Color.fromARGB(255, random.nextInt(256), random.nextInt(256),
+                random.nextInt(256)),
+            duration: Duration(seconds: 2),
+            width: 50.0 + random.nextInt(256),
+            height: 50.0 + random.nextInt(256),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              // ignore: deprecated_member_use
-              RaisedButton(
-                child: Text("Tambah"),
-                onPressed: () {
-                  setState(() {
-                    widgets.add(Text(
-                      "Data ke-" + counter.toString(),
-                      style: TextStyle(fontSize: 35, fontFamily: "Nunito"),
-                    ));
-                    counter++;
-                  });
-                },
-              ),
-              // ignore: deprecated_member_use
-              RaisedButton(
-                child: Text("Hapus"),
-                onPressed: () {
-                  setState(() {
-                    widgets.removeLast();
-                    counter--;
-                  });
-                },
-              )
-            ],
-          ),
-          Column(
-            children: widgets,
-          )
-        ],
+        ),
       ),
     ));
   }
