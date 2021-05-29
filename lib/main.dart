@@ -4,28 +4,48 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int number = 0;
+  void btnGO() {
+    setState(() {
+      number += 1;
+    });
+  }
+
+  void btnReset() {
+    setState(() {
+      number = 10;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("MyFlutter App Eps5"),
-        ),
-        body: Container(
-          color: Colors.blue,
-          margin: EdgeInsets.fromLTRB(10, 5, 5, 10),
-          padding: EdgeInsets.all(5),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[Colors.blueAccent, Colors.amber])),
-          ),
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text("Statefull Widget Demo - Eps6"),
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Padding(padding: EdgeInsets.only(top: 20)),
+            Text(number.toString(),
+                style: TextStyle(fontSize: 10 + number.toDouble())),
+            // ignore: deprecated_member_use
+            RaisedButton(
+              child: Text("GO GO GO!"),
+              onPressed: btnGO,
+            ),
+            // ignore: deprecated_member_use
+            RaisedButton(child: Text("RESET"), onPressed: btnReset)
+          ],
         ),
       ),
-    );
+    ));
   }
 }
