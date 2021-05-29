@@ -18,23 +18,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: Text("LATIHAN TEXTSTYLE - eps8"),
+        title: Text("Latian ListView - Eps9"),
       ),
       body: ListView(
         children: <Widget>[
-          Padding(padding: EdgeInsets.only(top: 11)),
-          Center(
-            child: Text(
-              "TEST GANTI FONT",
-              style: TextStyle(
-                  fontFamily: "SigmarOne",
-                  fontSize: 25,
-                  decoration: TextDecoration.overline,
-                  decorationColor: Colors.red,
-                  decorationThickness: 5,
-                  decorationStyle: TextDecorationStyle.wavy),
-            ),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -45,7 +32,7 @@ class _MyAppState extends State<MyApp> {
                   setState(() {
                     widgets.add(Text(
                       "Data ke-" + counter.toString(),
-                      style: TextStyle(fontSize: 35, fontFamily: "Nunito"),
+                      style: TextStyle(fontSize: 35),
                     ));
                     counter++;
                   });
